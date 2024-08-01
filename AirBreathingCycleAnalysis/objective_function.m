@@ -1,4 +1,4 @@
-function [ST,SFC] = objective_function(x)
+function [SFC] = objective_function(x)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % objective_function.m called from optimizer to produce single-output of
 % ST/SFC given the input characteristics desired.

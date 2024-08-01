@@ -77,14 +77,17 @@ global CONSTS;
 CONSTS = struct('efficiencies', efficiencies, 'combustor', combustor,...
     'thermo', thermo, 'freestream', freestream, 'turbo', turbo);
 
+% Minimum specific thrust required:
+ST_min = 2000; %[lbf*s/lbm] 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% COMPUTATION & OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 %% SINGLE RUN %%
 if strcmp(run,"single")
     % Run turbofan for outputs
-    [ST,SFC] = TurboFan(CONSTS);
+    [ST,SFC] = TurboFan();
     % Outputs
     fprintf('INPUTS: \n')
     fprintf(' => cpr = %d\n', cpr)
@@ -101,9 +104,17 @@ if strcmp(run,"optimize_gradient")
     % Run optimizer for outputs
     [x_opt,fval] = Optimizer(CONSTS);
     % Outputs
-    fprintf('The minimum SFC value is: %s\n', fval);
+    fprintf('The minimum SFC value is: %s\n', num2str(fval));
     fprintf(' => cpr = %d\n', x_opt(3))
     fprintf(' => beta = %d\n', x_opt(2))
     fprintf(' => fpr = %d\n', x_opt(1))
 end
 
+%% GRAPHICS RUN %% - (WIP)
+if strcmp(run,"sweep_cpr")
+
+elseif strcmp(run,"sweep_beta")
+
+elseif strcmp(run,"sweep_fpr")
+
+end

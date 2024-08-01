@@ -67,7 +67,7 @@ else
 end
 
 if not(isreal(ST)) || ST < 0
-    ST = 0; % specific thrust
-    SFC = 1.3; % specific fuel consumption
+    ST = []; % specific thrust
+    SFC = []; % specific fuel consumption
 end 
 
